@@ -1,0 +1,13 @@
+.note {
+	& p {
+		@include font(1.8rem, calc(25 / 18));
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.note {
+		& p {
+			@include font(1.4rem, calc(20 / 14));
+		}
+	}
+}

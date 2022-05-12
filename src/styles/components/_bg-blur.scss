@@ -1,0 +1,11 @@
+.bg-blur {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba($white, 0.07);
+	backdrop-filter: blur(25px);
+	pointer-events: none;
+}

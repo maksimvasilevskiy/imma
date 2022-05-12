@@ -1,0 +1,108 @@
+.original-page {
+	&__wrapper {
+		padding: 52px 0;
+		padding-bottom: 168px;
+	}
+	&__content {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__nft {
+		& .title {
+			display: none;
+		}
+	}
+	&__info {
+		width: 100%;
+		max-width: calc(670 / 1170 * 100%);
+	}
+	&__title {
+		padding-bottom: 45px;
+		border-bottom: 1px solid $white;
+	}
+	&__owner {
+		display: flex;
+		align-items: center;
+		& .title {
+			margin-right: 15px;
+		}
+		&-link {
+			font-family: $title-font;
+			font-weight: 700;
+			color: $lightgreen;
+			@include font(1.6rem, calc(21 / 16));
+		}
+	}
+	&__graph {
+		& .title {
+			margin-bottom: 30px;
+		}
+		&-link {
+			font-family: $title-font;
+			display: inline-block;
+			position: relative;
+			font-size: 1.6rem;
+			font-weight: 700;
+			line-height: calc(22 / 16);
+			text-transform: uppercase;
+			padding-left: 33px;
+			padding-right: 38px;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 22px;
+				height: 22px;
+				background: icon('opensea.svg') no-repeat 50% / cover;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 50%;
+				width: 25px;
+				height: 9px;
+				background: icon('arrow-white.svg') no-repeat 50% / cover;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.original {
+		&-page {
+			& .product-block {
+				padding: 30px 0;
+			}
+			&__wrapper {
+				padding-bottom: 70px;
+			}
+			&__info {
+				max-width: none;
+				& .original-page__title {
+					display: none;
+				}
+			}
+			&__owner {
+				border-top: 1px solid $white;
+				& .title {
+					margin-right: 11px;
+				}
+				&-link {
+					@include font(1.4rem, calc(18 / 14));
+				}
+			}
+			&__nft {
+				margin-bottom: 30px;
+				& .title {
+					display: block;
+					border: none;
+					padding: 0;
+					margin-bottom: 29px;
+				}
+			}
+		}
+	}
+}

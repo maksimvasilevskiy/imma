@@ -1,0 +1,13 @@
+.link,
+.logo {
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
+}
+
+.link_hover_green {
+	&:hover {
+		color: $lightgreen;
+	}
+}

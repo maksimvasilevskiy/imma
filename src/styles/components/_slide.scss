@@ -1,0 +1,38 @@
+.slide {
+	&-btns {
+		position: absolute;
+		top: calc(100% + 180px);
+		left: 0;
+		&__wrapper {
+			grid-column-start: 2;
+			position: relative;
+		}
+	}
+	&-btn {
+		position: relative;
+		z-index: 2;
+		margin-right: 19px;
+		cursor: pointer;
+		&:last-child {
+			margin-right: 0;
+		}
+		&:hover {
+			& svg path {
+				stroke: $lightgreen;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.slide {
+		&-btns {
+			position: relative;
+			top: initial;
+			left: initial;
+			&__wrapper {
+				grid-column-start: 1;
+			}
+		}
+	}
+}

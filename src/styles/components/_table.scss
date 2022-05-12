@@ -1,0 +1,168 @@
+.table {
+	width: 100%;
+	@include font(1.4rem, calc(18 / 14));
+	&-row {
+		position: relative;
+		border-bottom: 1px solid $white;
+		@include flex(row, stretch);
+		& .table-col {
+			text-align: left;
+			padding: 30px 0;
+			&__wrapper {
+				height: 123px;
+				@include flex(column, flex-start, flex-start, wrap);
+			}
+			& .link {
+				color: $lightgreen;
+			}
+			& p {
+				font-family: $title-font;
+				font-weight: 700;
+				@include font(1.6rem, calc(21 / 16));
+				white-space: nowrap;
+				margin-bottom: 3px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			& .title {
+				@include font(1.4rem, calc(18 / 14));
+				font-weight: 400;
+				font-family: $font;
+			}
+		}
+		& .table-col {
+			padding-right: 12px;
+			box-sizing: border-box;
+			& .video {
+				& img {
+					max-height: 123px;
+					object-fit: contain;
+				}
+			}
+			&:first-child {
+				width: calc((100 / 1170) * 100%);
+				padding-right: 30px;
+				min-width: 90px;
+				& .video-play {
+					width: 25px;
+					height: 25px;
+					& svg[data-svg='play'] {
+						width: 7px;
+						height: 9px;
+						transform: translate(calc(-50% + 1px), -50%);
+					}
+				}
+			}
+			&:nth-child(2) {
+				padding-right: 40px;
+				width: calc((168 / 1170) * 100%);
+				font-weight: 700;
+				height: 185px;
+				align-self: center;
+				height: 100%;
+				& p:first-child {
+					@include font(1.2rem, calc(16 / 12));
+				}
+				& p:nth-child(3) {
+					margin-top: auto;
+					@include font(1.4rem, calc(18 / 14));
+				}
+			}
+			&:nth-child(3) {
+				width: calc((188 / 1170) * 100%);
+				font-family: $title-font;
+				font-weight: 700;
+				@include font(1.6rem, calc(21 / 16));
+				& p:nth-child(2) {
+					margin-bottom: 20px;
+				}
+			}
+			&:nth-child(4) {
+				width: calc((246 / 1170) * 100%);
+				& img {
+					margin-top: auto;
+				}
+			}
+			&:last-child {
+				width: calc((470 / 1170) * 100%);
+				padding-right: 0;
+				& .table-col__wrapper {
+					flex-direction: row;
+					align-items: center;
+				}
+				& img {
+					margin-right: 25px;
+				}
+			}
+		}
+	}
+	&-header {
+		font-family: $title-font;
+		@include font(1.6rem, calc(21 / 16));
+		font-weight: 700;
+		& .table-col {
+			@include font(1.6rem, calc(21 / 16));
+			padding: 0;
+			padding-bottom: 16px;
+			&:nth-child(3) {
+				@include font(1.6rem, calc(21 / 16));
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.table {
+		&-row {
+			& .table-col {
+				&:last-child {
+					& img {
+						margin: 0;
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.table {
+		min-width: 1170px;
+		&-row {
+			& .table-col {
+				&:nth-child(2) {
+					width: calc((211 / 1170) * 100%);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.table {
+		&-header {
+			@include font(1.4rem, calc(18 / 14));
+			& .table-col {
+				@include font(1.4rem, calc(18 / 14));
+				&:nth-child(3) {
+					@include font(1.4rem, calc(18 / 14));
+				}
+			}
+		}
+		&-row {
+			& .table-col {
+				padding: 10px 0;
+				padding-right: 12px;
+				@include font(1.4rem, calc(18 / 14));
+				&:nth-child(2) {
+					@include font(1.4rem, calc(18 / 14));
+				}
+				&:nth-child(3) {
+					@include font(1.8rem, calc(24 / 18));
+				}
+			}
+		}
+	}
+}

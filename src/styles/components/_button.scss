@@ -1,0 +1,126 @@
+.btn {
+	font-family: $title-font;
+	display: inline-block;
+	@include font(1.8rem, calc(25 / 18));
+	padding: 1.11em 3.18em;
+	padding-right: calc(3.18em + 33px);
+	text-transform: uppercase;
+	font-weight: 700;
+	background: rgba($white, 0.07);
+	color: $white;
+	position: relative;
+	border-radius: 2px;
+	&::after {
+		content: '';
+		position: absolute;
+		right: 3.18em;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 25px;
+		height: 9px;
+		background: icon('arrow-white.svg') no-repeat 50% / cover;
+	}
+	&:hover {
+		background: $lightgreen;
+		color: $black;
+		&::after {
+			background: icon('arrow-black.svg') no-repeat 50% / cover;
+		}
+	}
+	&:active {
+		opacity: 0.8;
+	}
+	&_border_green {
+		border: 2px solid $lightgreen;
+		background: transparent;
+		padding: 1em 3.18em;
+		padding-right: calc(3.18em + 33px);
+	}
+	&-arrow {
+		font-family: $title-font;
+		display: inline-block;
+		@include font(1.8rem, calc(25 / 18));
+		padding: 0.5em 0;
+		padding-right: calc(2em + 10px);
+		text-transform: uppercase;
+		font-weight: 700;
+		color: $white;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			right: 4px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 25px;
+			height: 9px;
+			background: icon('arrow-white.svg') no-repeat 50% / cover;
+		}
+		&:hover {
+			color: $lightgreen;
+			&::after {
+				background: icon('arrow-green.svg') no-repeat 50% / cover;
+			}
+		}
+		&:active {
+			opacity: 0.8;
+		}
+		&[disabled] {
+			color: $white;
+			opacity: 0.6;
+			&::after {
+				background: icon('arrow-white.svg') no-repeat 50% / cover;
+			}
+		}
+	}
+	&-video {
+		color: $lightgreen;
+		font-family: $title-font;
+		@include font(2rem, calc(26 / 20));
+		background: rgba($white, 0.07);
+		border-radius: 2px;
+		padding: 1.9em 1.8em;
+		padding-left: 96px;
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 35px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 30px;
+			height: 23px;
+			background: icon('camera.svg') no-repeat 50% / contain;
+		}
+		&:hover {
+			outline: 1px solid $lightgreen;
+		}
+		&:active {
+			opacity: 0.8;
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.btn {
+		@include font(1.4rem, calc(20 / 14));
+		padding: 1.285em 2.285em;
+		padding-right: calc(2.285em + 33px);
+		&::after {
+			right: 2.285em;
+		}
+		&_border_green {
+			padding: 1.14em 2.285em;
+			padding-right: calc(2.285em + 37px);
+		}
+		&-arrow {
+			@include font(1.4rem, calc(20 / 14));
+			padding-right: calc(0.5em + 40px);
+			&::after {
+				@include font(1.4rem, calc(20 / 14));
+				right: 0.9em;
+				background: icon('arrow-white.svg') no-repeat 50% / cover;
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.list {
+	padding: 0;
+	&__item {
+		padding-left: 23px;
+		position: relative;
+		@include font(1.6rem, calc(21 / 16));
+		color: $white;
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 6px;
+			background: $lightgreen;
+			border-radius: 2px;
+			width: 8px;
+			height: 8px;
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.list {
+		&__item {
+			@include font(1.4rem, calc(18 / 14));
+			padding-left: 18px;
+			&::before {
+				width: 5px;
+				height: 5px;
+			}
+		}
+	}
+}

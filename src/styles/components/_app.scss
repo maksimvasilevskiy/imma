@@ -1,0 +1,6 @@
+.app {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	background: image('noise.png'), $black-bg;
+}

@@ -1,0 +1,87 @@
+.activity {
+	background: rgba($white, 0.07);
+	backdrop-filter: blur(25px);
+	border-radius: 2px;
+	padding: 41px 50px;
+	max-height: 560px;
+	overflow: scroll;
+	overflow-x: hidden;
+	&::-webkit-scrollbar-thumb {
+		background-color: $lightgreen;
+	}
+	&::-webkit-scrollbar {
+		width: 7px;
+	}
+	&-item {
+		margin-bottom: 22px;
+		&:first-child {
+			margin-bottom: 32px;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&__wrapper {
+			@include flex();
+		}
+		&__img {
+			margin-right: 25px;
+		}
+		& p {
+			margin-bottom: 5px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		& .link {
+			color: $lightgreen;
+		}
+		&__content {
+			@include font(1.4rem, calc(18.28 / 14));
+		}
+		&__event {
+			@include font(1.6rem, calc(21 / 16));
+			font-weight: 700;
+			font-family: $title-font;
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.activity {
+		padding: 30px 25px;
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
+		&-item {
+			margin-bottom: 24px;
+			&:first-child {
+				margin-bottom: 24px;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+			&__img {
+				margin-right: 15px;
+				width: 30px;
+				height: 30px;
+			}
+			&__event {
+				@include font(1.4rem, calc(18 / 14));
+			}
+			&__wallet {
+				@include font(1.2rem, calc(16 / 12));
+				& .link {
+					display: inline;
+					word-wrap: break-word;
+					word-break: break-all;
+				}
+			}
+			&__price {
+				@include font(1.2rem, calc(16 / 12));
+			}
+			&__time {
+				@include font(1.2rem, calc(16 / 12));
+			}
+		}
+	}
+}

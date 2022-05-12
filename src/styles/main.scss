@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/*!
+ * Bootstrap Grid v4.5.3 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+html {
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+@import 'bootstrap/functions';
+@import 'bootstrap/variables';
+
+//
+// Grid mixins
+//
+
+// 0. Bootstrap
+@import 'bootstrap/mixins/breakpoints';
+@import 'bootstrap/mixins/grid-framework';
+@import 'bootstrap/mixins/grid';
+
+@import 'bootstrap/grid';
+@import 'bootstrap/utilities/display';
+@import 'bootstrap/utilities/flex';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendors/normalize';
+
+// 3. Base stuff
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
+
+//4. Components
+@import 'components/title', 'components/button', 'components/section', 'components/note', 'components/list',
+	'components/table', 'components/swiper', 'components/input', 'components/slider', 'components/close',
+	'components/bg-blur';
+
+// 5. Layout-related sections
+@import 'layout/header', 'layout/main', 'layout/footer';
+
+// 6. Components
+@import 'components/app', 'components/home-main', 'components/video', 'components/welcome', 'components/about',
+	'components/block-numbered', 'components/about-define', 'components/lifefeed', 'components/all-nft',
+	'components/slide', 'components/accordion', 'components/faq', 'components/protocol', 'components/info',
+	'components/creation', 'components/step', 'components/nfts', 'components/view-more', 'components/product',
+	'components/status', 'components/activity', 'components/timer', 'components/more-swiper';
+
+// 7. Page-specific styles
+@import 'pages/home', 'pages/product', 'pages/original';
+
+// 8. Themes
+@import 'themes/default', 'themes/media';
