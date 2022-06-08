@@ -7,8 +7,9 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import { Result } from '../helpers/getLiveFeedTypes';
 
-export const ProductMoreNft = ({ video }: { video: ITableData }) => {
+export const ProductMoreNft = ({ video }: { video: Result }) => {
 	return (
 		<div className="product-block product-page__swiper">
 			<h4 className="title product-block__title">More IMMA NFTs From This Creator</h4>
@@ -44,7 +45,7 @@ export const ProductMoreNft = ({ video }: { video: ITableData }) => {
 								slide-id={video.id}
 								key={video.id}
 							>
-								<NftVideoItem properties={video} />
+								{/* <NftVideoItem properties={video} /> */}
 							</SwiperSlide>
 						);
 					})}

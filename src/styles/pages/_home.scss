@@ -1,70 +1,83 @@
 .home {
+  /*.container {
+    position: relative;
+  }
+  &__light {
+    max-width: initial;
+  }
   &__light-1 {
     position: absolute;
-    top: -391px;
-    left: -433px;
+    top: -1151px;
+    left: -1233px;
   }
   &__light-2 {
     position: absolute;
-    top: 262px;
-    right: 0px;
+    top: -276px;
+    right: -850px;
   }
   &__light-3 {
     position: absolute;
-    top: 1123px;
-    left: 0px;
+    top: 803px;
+    left: -1110px;
   }
   &__light-4 {
     position: absolute;
     top: 1626px;
-    right: 0px;
+    right: -1552px;
   }
   &__light-5 {
     position: absolute;
-    top: 3001px;
-    left: 0px;
+    top: 2651px;
+    left: -1500px;
   }
   &__light-6 {
     position: absolute;
-    top: 4057px;
-    right: 0px;
+    top: 3757px;
+    left: -350px;
   }
   &__light-7 {
     position: absolute;
-    top: 5274px;
-    left: 0px;
+    top: 5074px;
+    left: -1150px;
   }
   &__light-8 {
     position: absolute;
-    top: 6494px;
-    left: 0px;
+    top: 6094px;
+    left: -1351px;
   }
   &__light-9 {
     position: absolute;
-    top: 7930px;
-    right: 0px;
+    top: 7632px;
+    right: -1100px;
   }
   &__light-10 {
     position: absolute;
-    top: 9029px;
-    right: 0px;
+    top: 8729px;
+    right: -1400px;
   }
   &__light-11 {
     position: absolute;
-    top: 10020px;
-    left: 0px;
+    top: 10500px;
+    left: -1150px;
   }
   &__light-12 {
     position: absolute;
-    top: 11192px;
-    right: 0px;
+    top: 11692px;
+    right: -1500px;
   }
   &__light-13 {
     position: absolute;
-    bottom: 0;
-    right: 0px;
-  }
+    top: 12500px;
+    right: -1200px;
+  }s
   section {
     position: relative;
-  }
+  }*/
+  /*.noise {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }*/
 }

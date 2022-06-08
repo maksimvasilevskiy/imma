@@ -57,6 +57,12 @@
 			pointer-events: none;
 			top: -20px;
 			left: -76px;
+			& path {
+				stroke-dasharray: 1000;
+				stroke-dashoffset: 1000;
+				animation: draw 4s linear forwards;
+				animation-delay: 2s;
+			}
 		}
 		& svg[data-svg='star'] {
 			position: absolute;
@@ -64,6 +70,12 @@
 			pointer-events: none;
 			bottom: 212px;
 			right: -41px;
+			& path {
+				stroke-dasharray: 1000;
+				stroke-dashoffset: 1000;
+				animation: draw 4s linear forwards;
+				animation-delay: 2s;
+			}
 		}
 	}
 }
@@ -128,5 +140,11 @@
 				display: none;
 			}
 		}
+	}
+}
+
+@keyframes draw {
+	100% {
+		stroke-dashoffset: 0;
 	}
 }

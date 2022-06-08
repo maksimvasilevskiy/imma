@@ -141,7 +141,7 @@ export const BlockchainRadio = ({ type, blockchain, dispatch }: IBlockchainRadio
 					{BlockchainRadioTitles[type]}
 				</h4>
 			</div>
-			{disabled && <div className="blocker">It will be optional later</div>}
+			{disabled && <div className="blocker">Will be optional later</div>}
 		</label>
 	);
 };

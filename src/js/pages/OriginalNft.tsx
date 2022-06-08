@@ -6,6 +6,7 @@ import nftPicture2x from '../../assets/images/nft-picture@2x.png';
 export const OriginalNft = () => {
 	return (
 		<main className="main original">
+			<div className="bg-lights"></div>
 			<section className="original-page">
 				<div className="original-page__wrapper">
 					<div className="container">

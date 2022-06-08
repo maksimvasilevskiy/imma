@@ -42,6 +42,11 @@
 			@include font(2rem, calc(28 / 20));
 		}
 	}
+	&__content {
+		&-title {
+			margin-bottom: 30px;
+		}
+	}
 }
 
 @media screen and (max-width: 991px) {
@@ -78,6 +83,12 @@
 		&__bottom {
 			& p {
 				@include font(1.6rem, calc(21 / 16));
+			}
+		}
+		&__content {
+			&-title {
+				margin-bottom: 20px;
+				@include font(2.6rem, calc(36 / 26));
 			}
 		}
 	}

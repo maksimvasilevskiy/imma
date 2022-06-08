@@ -46,14 +46,14 @@
 	.swiper {
 		&-slide {
 			width: auto;
+			& .video {
+				&-preview {
+					height: inherit;
+				}
+			}
 			&-active {
 				width: auto;
 				height: auto;
-				& .video {
-					&-preview {
-						height: auto;
-					}
-				}
 				& .video-icon img {
 					width: 47px;
 					height: 47px;

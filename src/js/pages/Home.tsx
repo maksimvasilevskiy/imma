@@ -20,23 +20,28 @@ import light10 from '../../assets/images/10.svg';
 import light11 from '../../assets/images/11.svg';
 import light12 from '../../assets/images/12.svg';
 import light13 from '../../assets/images/13.svg';
+import lightbg1 from '../../assets/images/left-bottom-light.svg';
+import lightbg2 from '../../assets/images/right-top-light.svg';
 
 export const Home: React.FC = () => {
 	return (
 		<main className="main home">
-      <img alt="bg-img" className="home__light-1" src={light1} />
-      <img alt="bg-img" className="home__light-2" src={light2} />
-			<img alt="bg-img" className="home__light-3" src={light3} />
-      <img alt="bg-img" className="home__light-4" src={light4} />
-      <img alt="bg-img" className="home__light-5" src={light5} />
-      <img alt="bg-img" className="home__light-6" src={light6} />
-      <img alt="bg-img" className="home__light-7" src={light7} />
-      <img alt="bg-img" className="home__light-8" src={light8} />
-      <img alt="bg-img" className="home__light-9" src={light9} />
-      <img alt="bg-img" className="home__light-10" src={light10} />
-      <img alt="bg-img" className="home__light-11" src={light11} />
-      <img alt="bg-img" className="home__light-12" src={light12} />
-      <img alt="bg-img" className="home__light-13" src={light13} />
+			<div className="bg-lights"></div>
+			{/*<div className="container">
+	      <img alt="bg-img" className="home__light home__light-1" src={light1} />
+	      <img alt="bg-img" className="home__light home__light-2" src={light2} />
+				<img alt="bg-img" className="home__light home__light-3" src={light3} />
+	      <img alt="bg-img" className="home__light home__light-4" src={light4} />
+	      <img alt="bg-img" className="home__light home__light-5" src={light5} />
+	      <img alt="bg-img" className="home__light home__light-6" src={light6} />
+	      <img alt="bg-img" className="home__light home__light-7" src={light7} />
+	      <img alt="bg-img" className="home__light home__light-8" src={light8} />
+	      <img alt="bg-img" className="home__light home__light-9" src={light9} />
+	      <img alt="bg-img" className="home__light home__light-10" src={light10} />
+	      <img alt="bg-img" className="home__light home__light-11" src={light11} />
+	      <img alt="bg-img" className="home__light home__light-12" src={light12} />
+	      <img alt="bg-img" className="home__light home__light-13" src={light13} />
+			</div>*/}
 			<HomeMain />
 			<Welcome />
 			<About />

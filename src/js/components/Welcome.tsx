@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import welcomeBig from '../../assets/images/welcome_big.png';
 import welcomeBig2x from '../../assets/images/welcome_big@2x.png';
 import welcomeSm from '../../assets/images/welcome_sm.png';
@@ -12,7 +13,7 @@ export const Welcome: React.FC = () => {
 					<div className="welcome-content">
 						<div className="welcome__title-wrapper">
 							<h2 className="title title_size-m title_wrapped welcome__title">
-								Welcome
+								Who we are?
 							</h2>
 						</div>
 						<div className="welcome__img_big">
@@ -30,14 +31,19 @@ export const Welcome: React.FC = () => {
 								sentimental and valuable.
 							</p>
 							<p>
-								Anyone can sign any NFT, from family members to the biggest
+								Anyone can sign on any NFT, from family members to the biggest
 								celebrities you can imagine.
 							</p>
 							<p>You can sign on your own NFTs or someone else’s NFT.</p>
+							<div className="welcome__btn">
+								<Link to="/" className="btn btn_border_green">
+									Test-net area
+								</Link>
+							</div>
 						</div>
 						<div className="welcome__img_small">
 							<img
-								height="232"
+								height="139"
 								src={welcomeSm}
 								srcSet={`${welcomeSm} 1x, ${welcomeSm2x ? welcomeSm2x : ''} 2x`}
 								alt=""

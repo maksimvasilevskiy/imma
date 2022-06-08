@@ -57,10 +57,25 @@
 			& svg {
 				margin-right: 13px;
 			}
+			& b {
+				color: $lightgreen;
+			}
 		}
 	}
 	& .timer {
 		grid-column: 2 / 4;
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.status {
+		&-info {
+			&__bottom {
+				& b {
+					display: block;
+				}
+			}
+		}
 	}
 }
 
@@ -69,6 +84,13 @@
 		&_pending {
 			& .timer {
 				grid-column-start: 1;
+			}
+		}
+		&-info {
+			&__bottom {
+				& b {
+					display: inline;
+				}
 			}
 		}
 	}
@@ -126,6 +148,9 @@
 				}
 				& span {
 					@include font(1.2rem, calc(16 / 12));
+				}
+				& b {
+					display: block;
 				}
 			}
 		}

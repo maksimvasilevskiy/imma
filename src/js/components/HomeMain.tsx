@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { NftVideoItem, NftVideo } from './NftVideoItem';
 import { mainNftVideoData } from './AllNft';
+import { BASE_URL, BLOCKCHAIN, NETWORK_NAME } from '../api/Api';
+import axios from 'axios';
 
 export const HomeMain: React.FC = () => {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		const config = {
+			method: 'get',
+			url: `${BASE_URL}/api/${BLOCKCHAIN}/${NETWORK_NAME}/getLiveFeed`
+			// headers: {
+			// Origin: 'imma_postman'
+			// }
+		};
+
+		axios(config)
+			.then((response) => {
+				setData(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
 	return (
 		<section className="home-main">
 			<div className="home-main__wrapper">
@@ -63,7 +85,7 @@ export const HomeMain: React.FC = () => {
 									strokeLinecap="round"
 								/>
 							</svg>
-							<NftVideoItem properties={mainNftVideoData[0]} />
+							{data && <NftVideoItem properties={data.results[0]} />}
 						</div>
 					</div>
 				</div>

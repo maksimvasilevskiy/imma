@@ -25,8 +25,8 @@ const aboutItems: Array<NumberedBlockProps> = [
 				type: 'list',
 				list: {
 					items: [
-						'Consistently receive a percentage when the created IMMA NFT will sell in the future',
-						'Payment for creating the IMMA NFT (optional)'
+						'You will consistently receive a percentage when the IMMA NFT generated is sold in the future',
+						'You will receive payment for creating the IMMA NFT (optional)'
 					]
 				}
 			}
@@ -38,7 +38,7 @@ const aboutItems: Array<NumberedBlockProps> = [
 			{
 				type: 'text_bold',
 				paragraphs: [
-					'3rd party/broker wallet address to consistently receive a percentage when the created IMMA NFT will sell in the future (optional)'
+					'OPTIONAL! - 3rd party/broker wallet address to consistently receive a percentage when the created IMMA NFT will sell in the future'
 				]
 			}
 		]
@@ -51,8 +51,7 @@ export const About: React.FC = () => {
 			<div className="section-wrapper about-wrapper">
 				<div className="container">
 					<h2 className="title title_size-m about-title">
-						About <br />
-						the <span className="title_wrapped">project</span>
+						How to <span className="title_wrapped">create</span> an IMMA NFT
 					</h2>
 					<div className="note about-note">
 						<p>IMMA NFT creation is simple and includes a few steps...</p>

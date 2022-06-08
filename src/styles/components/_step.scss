@@ -33,6 +33,7 @@
 		}
 	}
 	&-code {
+		font-weight: 700;
 		margin-top: 60px;
 		& label {
 			font-family: $title-font;
@@ -126,6 +127,22 @@
 					width: 14px;
 					height: 23px;
 					background: icon('eth-icon.svg') no-repeat 50% / cover;
+				}
+			}
+		}
+		&__sign {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(calc(-50% - 75px), -50%);
+			&_active {
+				& svg {
+					& path {
+						stroke-dasharray: 1000;
+						stroke-dashoffset: 1000;
+						animation: draw 4s infinite;
+						animation-delay: 2s;
+					}
 				}
 			}
 		}
@@ -615,5 +632,11 @@
 				}
 			}
 		}
+	}
+}
+
+@keyframes draw {
+	100% {
+		stroke-dashoffset: 0;
 	}
 }

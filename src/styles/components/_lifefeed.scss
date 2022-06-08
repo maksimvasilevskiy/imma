@@ -2,6 +2,12 @@
 	&-title {
 		margin-bottom: 40px;
 	}
+	& .video {
+		justify-content: center;
+		&-preview {
+			max-width: none;
+		}
+	}
 	&-mobile {
 		max-width: 500px;
 		display: none;
@@ -13,9 +19,6 @@
 			padding: 15px 0;
 			&:first-child {
 				border-top: 1px solid $white;
-			}
-			& a {
-				color: $lightgreen;
 			}
 			& p {
 				font-family: $title-font;
@@ -32,7 +35,7 @@
 		&__video {
 			& img[data-img='sign'] {
 				margin: 0 auto;
-				max-width: 80%;
+				width: 100%;
 			}
 			& .video {
 				display: inline-block;
@@ -81,6 +84,9 @@
 				& .title:nth-child(2) a {
 					word-wrap: break-word;
 				}
+				& a {
+					color: $lightgreen;
+				}
 			}
 		}
 	}
@@ -99,6 +105,17 @@
 	.lifefeed {
 		&-mobile {
 			display: block;
+			& .video {
+				height: 177px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&-preview {
+					height: 100%;
+					width: auto;
+					object-fit: cover;
+				}
+			}
 		}
 		&-container {
 			margin: 0;
@@ -129,9 +146,9 @@
 		}
 		&-mobile {
 			&__item {
-				grid-template-columns: calc(30% - 8px) calc(70% - 8px);
+				grid-template-columns: 73px 1fr;
 				& .title {
-					margin-bottom: 0;
+					margin-bottom: 7px;
 				}
 			}
 			&__activity {
@@ -150,6 +167,15 @@
 						@include font(1.2rem, calc(16 / 12));
 						margin-bottom: 5px;
 					}
+				}
+			}
+			&__video {
+				max-width: 75px;
+			}
+			& .video {
+				height: 129px;
+				&-preview {
+					width: 100%;
 				}
 			}
 		}

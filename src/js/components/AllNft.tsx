@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NftVideoItem, NftVideo } from './NftVideoItem';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
+
+import { BASE_URL, BLOCKCHAIN, NETWORK_NAME } from '../api/Api';
+import axios from 'axios';
 
 import nftPicture from '../../assets/images/nft-picture.png';
 import nftPicture2x from '../../assets/images/nft-picture@2x.png';
@@ -98,87 +101,133 @@ export const mainNftVideoData: Array<NftVideo> = [
 ];
 
 export const AllNft: React.FC = () => {
-	return (
-		<section className="section all-nft">
-			<div className="section-wrapper all-nft-wrapper">
-				<div className="container">
-					<h2 className="title title_size-m all-nft__title">All Imma NFT</h2>
-				</div>
-				<div className="all-nft__swiper-wrapper">
-					<div className="slide-btns__wrapper">
-						<div className="slide-btns">
-							<button type="button" className="slide-btn left-btn">
-								<svg
-									width="26"
-									height="10"
-									viewBox="0 0 26 10"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M26 5.04736H1M1 5.04736L5.7619 0.547363M1 5.04736L5.7619 9.54736"
-										stroke="white"
-									/>
-								</svg>
-							</button>
-							<button type="button" className="slide-btn right-btn">
-								<svg
-									width="26"
-									height="10"
-									viewBox="0 0 26 10"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M0 5.04736H25M25 5.04736L20.2381 0.547363M25 5.04736L20.2381 9.54736"
-										stroke="white"
-									/>
-								</svg>
-							</button>
-						</div>
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		const config = {
+			method: 'get',
+			url: `${BASE_URL}/api/${BLOCKCHAIN}/${NETWORK_NAME}/getLiveFeed`
+			// headers: {
+			// Origin: 'imma_postman'
+			// }
+		};
+
+		axios(config)
+			.then((response) => {
+				setData(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
+	if (data) {
+		return (
+			<section className="section all-nft">
+				<div className="section-wrapper all-nft-wrapper">
+					<div className="container">
+						<h2 className="title title_size-m all-nft__title">All Imma NFT</h2>
 					</div>
-					<Swiper
-						modules={[Navigation]}
-						className="all-nft__swiper"
-						onSwiper={(swiper) => console.log(swiper)}
-						spaceBetween={30}
-						slidesPerView={'auto'}
-						centeredSlides={false}
-						loop={true}
-						// onSlideChange={(swiper) => slideChange(swiper)}
-						// onTransitionEnd={(swiper) => slideChange(swiper)}
-						onSlideChangeTransitionStart={(swiper) =>
-							setTimeout((): void => swiper.update(), 110)
-						}
-						navigation={{
-							prevEl: '.all-nft__swiper-wrapper .left-btn',
-							nextEl: '.all-nft__swiper-wrapper .right-btn'
-						}}
-						breakpoints={{
-							767: {
-								slidesPerView: 'auto',
-								centeredSlides: false
-							},
-							320: {
-								slidesPerView: 1,
-								centeredSlides: true
+					<div className="all-nft__swiper-wrapper">
+						<div className="slide-btns__wrapper">
+							<div className="slide-btns">
+								<button type="button" className="slide-btn left-btn">
+									<svg
+										width="26"
+										height="10"
+										viewBox="0 0 26 10"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M26 5.04736H1M1 5.04736L5.7619 0.547363M1 5.04736L5.7619 9.54736"
+											stroke="white"
+										/>
+									</svg>
+								</button>
+								<button type="button" className="slide-btn right-btn">
+									<svg
+										width="26"
+										height="10"
+										viewBox="0 0 26 10"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M0 5.04736H25M25 5.04736L20.2381 0.547363M25 5.04736L20.2381 9.54736"
+											stroke="white"
+										/>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<Swiper
+							modules={[Navigation]}
+							className="all-nft__swiper"
+							onSwiper={(swiper) => console.log(swiper)}
+							spaceBetween={30}
+							slidesPerView={'auto'}
+							centeredSlides={false}
+							loop={true}
+							// onSlideChange={(swiper) => slideChange(swiper)}
+							// onTransitionEnd={(swiper) => slideChange(swiper)}
+							onSlideChangeTransitionStart={(swiper) =>
+								setTimeout((): void => swiper.update(), 110)
 							}
-						}}
-					>
-						{mainNftVideoData.map((video) => {
-							return (
-								<SwiperSlide
-									className="all-nft__swiper-slide"
-									slide-id={video.id}
-									key={video.id}
-								>
-									<NftVideoItem properties={video} />
-								</SwiperSlide>
-							);
-						})}
-					</Swiper>
+							navigation={{
+								prevEl: '.all-nft__swiper-wrapper .left-btn',
+								nextEl: '.all-nft__swiper-wrapper .right-btn'
+							}}
+							breakpoints={{
+								767: {
+									slidesPerView: 'auto',
+									centeredSlides: false
+								},
+								320: {
+									slidesPerView: 1,
+									centeredSlides: true
+								}
+							}}
+						>
+							{data.results.map((video) => {
+								return (
+									<SwiperSlide
+										className="all-nft__swiper-slide"
+										slide-id={video.index}
+										key={video.index}
+									>
+										<NftVideoItem properties={video} />
+									</SwiperSlide>
+								);
+							})}
+							{/* {data.results.map((video) => {
+								return (
+									<SwiperSlide
+										className="all-nft__swiper-slide"
+										slide-id={video.index}
+										key={video.index}
+									>
+										<NftVideoItem properties={video} />
+									</SwiperSlide>
+								);
+							})} */}
+							{/* {data.results.map((video) => {
+								return (
+									<SwiperSlide
+										className="all-nft__swiper-slide"
+										slide-id={video.index}
+										key={video.index}
+									>
+										<NftVideoItem properties={video} />
+									</SwiperSlide>
+								);
+							})} */}
+						</Swiper>
+					</div>
 				</div>
-			</div>
-		</section>
-	);
+			</section>
+		);
+	} else {
+		return null;
+	}
 };

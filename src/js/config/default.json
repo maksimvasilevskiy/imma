@@ -1,0 +1,26 @@
+{
+    "globals": {
+        "beta":"https://imma.club",
+        "production":"https://imma.love",
+        "base_url": "https://api.imma.love",
+        "base_url_beta": "https://api.imma.club",
+        "base_url_local": "http://localhost:3002",
+        "selected":{
+            "environment":"beta",
+            "blockchain":"ethereum",
+            "network":"rinkeby"
+        },
+        "network_id": 4,
+        "ipfs_url":"https://ipfs.infura.io:5001/api/v0",
+        "available_networks":{
+            "ethereum":{
+                "main":{
+                    "id":1
+                },
+                "rinkeby":{
+                    "id":4
+                }
+            }
+        }
+    }
+}

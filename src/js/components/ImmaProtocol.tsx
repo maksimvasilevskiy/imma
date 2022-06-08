@@ -164,7 +164,7 @@ const protocolList: Array<ProtocolItem> = [
 								'79%-89% IMMA NFT creator wallet ',
 								'10% Broker wallet (if there is)',
 								'1% Charity for needed mothers',
-								'10% Company wallet'
+								'10% IMMA project'
 							]
 						}
 					}
@@ -185,7 +185,7 @@ const protocolList: Array<ProtocolItem> = [
 								'10%  IMMA NFT creator wallet',
 								'10% Broker wallet (if there is)',
 								'1% Charity for needed mothers',
-								'10% Company wallet'
+								'10% IMMA project'
 							]
 						}
 					}
@@ -210,7 +210,7 @@ const protocolList: Array<ProtocolItem> = [
 							items: [
 								'33%-43% IMMA NFT last owner',
 								'10% Broker wallet (if there is)',
-								'45% Company wallet',
+								'45% IMMA project',
 								'10% IMMA NFT creator wallet',
 								'2% Charity for needed mothers'
 							]
@@ -256,7 +256,7 @@ const protocolList: Array<ProtocolItem> = [
 						type: 'text_thin',
 						paragraphs: [
 							'The current owner of the original NFT can claim back the ownership of the related IMMA NFT at any time.',
-							'In order to claim your IMMA NFT, browse the IMMA NFT page. (In case you are don’t have the link you can search it on the homepage > all IMMA NFT).',
+							'In order to claim your IMMA NFT, browse the IMMA NFT page. (In case you don’t have the link you can search it on the homepage > all IMMA NFT).',
 							'On the page, click on “Claim ownership”, pair your Meta-mask wallet and accept the transaction. '
 						]
 					}

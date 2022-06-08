@@ -17,13 +17,16 @@ import { NftVideo } from '../components/NftVideoItem';
 
 export type ActivityT = {
 	event: string;
-	time: string;
+	time?: string;
+	epoch?: 1652528075;
+	from?: string;
+	to?: string;
+	priceETH?: null | number;
 	icon: null | string;
-	price?: string;
-	wallet?: string;
 };
 
 export interface ITableData extends NftVideo {
+	index?: string;
 	hash: string;
 	author: string;
 	author_url: string;
@@ -67,20 +70,20 @@ export const tableData: Array<ITableData> = [
 		activity: [
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: null
 			},
@@ -91,27 +94,27 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: null
 			},
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: avatar
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: avatar
 			},
@@ -122,9 +125,9 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: avatar
 			}
 		]
@@ -157,20 +160,20 @@ export const tableData: Array<ITableData> = [
 		activity: [
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: null
 			},
@@ -181,27 +184,27 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: null
 			},
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: avatar
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: avatar
 			},
@@ -212,9 +215,9 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: avatar
 			}
 		]
@@ -247,20 +250,20 @@ export const tableData: Array<ITableData> = [
 		activity: [
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: null
 			},
@@ -271,27 +274,27 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: null
 			},
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: avatar
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: avatar
 			},
@@ -302,9 +305,9 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: avatar
 			}
 		]
@@ -337,20 +340,20 @@ export const tableData: Array<ITableData> = [
 		activity: [
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: null
 			},
@@ -361,27 +364,27 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: null
 			},
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: avatar
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: avatar
 			},
@@ -392,9 +395,9 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: avatar
 			}
 		]
@@ -428,20 +431,20 @@ export const tableData: Array<ITableData> = [
 		activity: [
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: null
 			},
@@ -452,27 +455,27 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: null
 			},
 			{
 				event: 'Reunited with Original NFT wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
 				time: '02\\04\\22 02:00',
 				icon: null
 			},
 			{
 				event: 'Claimed ownership from IMMA-trust wallet',
-				wallet: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
-				price: '2 ETH',
+				from: '0x217828160ff79e02c67A2785fd8dA2D2bD86c28E',
+				priceETH: 2,
 				time: '17\\04\\22 02:00',
 				icon: avatar
 			},
 			{
 				event: 'Transffered to IMMA-trust wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c06B',
 				time: '15\\04\\22 00:00',
 				icon: avatar
 			},
@@ -483,9 +486,9 @@ export const tableData: Array<ITableData> = [
 			},
 			{
 				event: 'Original NFT moved to a different wallet',
-				wallet: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
+				from: '0x213312160ff79e02c67A2785fd8dA2D2bD86c03B',
 				time: '14\\04\\22 23:59',
-				price: '0.8 ETH',
+				priceETH: 0.8,
 				icon: avatar
 			}
 		]

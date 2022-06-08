@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ITableData } from '../helpers/nftTableData';
+import { Result } from '../helpers/getLiveFeedTypes';
 
-export const ProductOriginalNft = ({ video }: { video: ITableData }) => {
+export const ProductOriginalNft = ({ video }: { video: Result }) => {
 	return (
 		<div className="product-block product-page__original">
 			<h4 className="title product-block__title">Original NFT:</h4>
@@ -11,12 +12,7 @@ export const ProductOriginalNft = ({ video }: { video: ITableData }) => {
 					width="180"
 					height="180"
 					className="product-page__original-img"
-					src={video.picture.quality1x}
-					srcSet={
-						video.picture.quality2x
-							? `${video.picture.quality1x} 1x, ${video.picture.quality2x} 2x`
-							: null
-					}
+					src={video.nfta.metadata.animation_url}
 					alt=""
 				></img>
 				<div className="video-play__link">

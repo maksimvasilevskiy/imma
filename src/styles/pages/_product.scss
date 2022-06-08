@@ -97,6 +97,9 @@
 		}
 		&-sign {
 			margin-left: auto;
+			& img {
+				max-height: 55px;
+			}
 		}
 	}
 	&__activity {

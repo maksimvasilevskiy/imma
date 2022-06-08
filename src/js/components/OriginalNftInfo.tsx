@@ -36,7 +36,8 @@ export const OriginalNftInfo = () => {
 					See in opensea
 				</a>
 			</div>
-			<ProductMoreNft video={tableData[0]} />
+			{/* TODO: Add this */}
+			{/* <ProductMoreNft video={tableData[0]} /> */}
 		</div>
 	);
 };

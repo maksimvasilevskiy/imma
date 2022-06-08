@@ -140,10 +140,7 @@ export const StatusReleased = () => {
 							</filter>
 						</defs>
 					</svg>
-					<p>
-						Unit
-						<span>from Original NFT</span>
-					</p>
+					<p>United with the original NFT</p>
 				</div>
 			</div>
 			<div className="status-info__btn-wrapper">

@@ -6,16 +6,19 @@ import { StatusReleased } from './StatusReleased';
 import { ProductAuthor } from './ProductAuthor';
 import { ProductActivity } from './ProductActivity';
 import { ProductMoreNft } from './ProductMoreNft';
+import { Result } from '../helpers/getLiveFeedTypes';
 
 type ProductInfoProps = {
-	video: ITableData;
+	video: Result;
 	status: 'released' | 'pending';
 };
 
 export const ProductInfo = React.memo(({ video, status }: ProductInfoProps) => {
 	return (
 		<div className="product-page__info">
-			<h2 className="title title_size-m product-page__title">IMMA NFT {video.hash}</h2>
+			<h2 className="title title_size-m product-page__title">
+				IMMA NFT #{video.uid.slice(0, 5)}...
+			</h2>
 			{status === 'pending' && <StatusPending />}
 			{status === 'released' && <StatusReleased />}
 			<ProductOriginalNft video={video} />

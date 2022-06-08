@@ -1,40 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { NftVideoItem } from '../components/NftVideoItem';
 import { tableData, ITableData } from '../helpers/nftTableData';
 import { ProductInfo } from '../components/ProductInfo';
+import { BASE_URL, BLOCKCHAIN, NETWORK_NAME } from '../api/Api';
+import axios from 'axios';
+import { Result, Response } from '../helpers/getLiveFeedTypes';
 
 export const Product: React.FC = () => {
-	const path = useLocation();
+	const path = useParams();
 
-	const [location, setLocation] = useState<null | string>(null);
-	const [video, setVideo] = useState<null | ITableData>(null);
+	const [data, setData] = useState<Response | null>(null);
+
+	const [video, setVideo] = useState<null | Result>(null);
 	// TODO: Set status by API
 	const [status, setStatus] = useState<'released' | 'pending'>('released');
 
 	useEffect(() => {
-		if (path) {
-			const pathName: string = path.pathname;
+		if (data && path) {
+			const video: Result = data.results.find((item: Result) => item.uid === path.nft);
 
-			const reversedPath: string[] = pathName.split('/').reverse();
-
-			const location: string = reversedPath[0] === '' ? reversedPath[1] : reversedPath[0];
-
-			console.log(location);
-
-			setLocation(location);
+			setVideo(video);
 		}
-	}, [path]);
+	}, [data]);
 
 	useEffect(() => {
-		const video: ITableData = tableData.find((item: ITableData) => item.slug === location);
+		const config = {
+			method: 'get',
+			url: `${BASE_URL}/api/${BLOCKCHAIN}/${NETWORK_NAME}/getLiveFeed`
+			// headers: {
+			// Origin: 'imma_postman'
+			// }
+		};
 
-		setVideo(video);
-	}, [tableData, location]);
+		axios(config)
+			.then((response) => {
+				setData(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
+	console.log(video);
 
 	if (!video) {
 		return (
 			<main className="main product">
+				<div className="bg-lights"></div>
 				<section className="product-page">
 					<div className="product-page__wrapper">
 						<div className="container">
@@ -52,15 +65,16 @@ export const Product: React.FC = () => {
 
 	return (
 		<main className="main product">
+			<div className="bg-lights"></div>
 			<section className="product-page">
 				<div className="product-page__wrapper">
 					<div className="container">
 						<div className="product-page__content">
 							<div className="product-page__video">
 								<h2 className="title title_size-m product-page__title_video">
-									IMMA NFT <span>{video.hash}</span>
+									IMMA NFT <span>#{video.uid.slice(0, 5)}...</span>
 								</h2>
-								<NftVideoItem properties={video} />
+								<NftVideoItem properties={video} videoHeight={658} />
 							</div>
 							<ProductInfo status={status} video={video} />
 						</div>

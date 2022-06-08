@@ -115,7 +115,7 @@ export const Creation = () => {
 							/>
 							{state.wallets.customWallet && (
 								<CreationForm
-									title="Your custom wallet"
+									title="Broke wallet"
 									state={state}
 									dispatch={dispatch}
 									wallet="custom"
@@ -138,7 +138,7 @@ export const Creation = () => {
 							)}
 						</div>
 					</CreationStep>
-					<CreationStep number="02" title="Price of the IMMA NFT">
+					<CreationStep number="02" title="Price for the first sell">
 						<div className="step-wrapper">
 							<PriceRadio isFree={true} price={state.price} dispatch={dispatch} />
 							<PriceRadio
@@ -169,6 +169,26 @@ export const Creation = () => {
 					<CreationStep number="05" title="Your signature">
 						<div className="step-wrapper">
 							<div className="step-block_sign">
+								<div
+									className="step-block__sign step-block__sign_active"
+									style={
+										signaturePad ? { display: 'none' } : { display: 'block' }
+									}
+								>
+									<svg
+										width="97"
+										height="218"
+										viewBox="0 0 97 218"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M56.8427 181.364C33.5056 150.907 18.3445 111.607 6.02359 75.5246C-0.0176277 57.8325 -2.65165 29.6244 9.00498 13.9995C23.8194 -5.85812 36.3543 36.6261 39.903 45.9817C43.0519 54.2834 46.7392 63.2681 47.0855 72.2722C47.4971 82.9748 49.3052 50.9382 51.3543 40.4255C53.3905 29.9787 55.2271 -1.53383 71.2076 1.0576C93.461 4.66625 95.8718 26.4331 95.8718 44.7621C95.8718 81.0366 74.7178 113.931 60.6372 146.468C53.3586 163.288 46.7623 180.353 37.4637 196.203C33.3042 203.293 28.259 209.779 23.9119 216.734"
+											stroke="white"
+											stroke-linecap="round"
+										/>
+									</svg>
+								</div>
 								<button
 									type="button"
 									className="step-block__sign-btn"
