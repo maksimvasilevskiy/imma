@@ -11,6 +11,46 @@
 		& .title {
 			display: none;
 		}
+		& .last-price {
+			margin-top: 18px;
+			display: flex;
+			justify-content: space-between;
+			&__label {
+				margin-top: 5px;
+				font-family: 'Questrial';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 130.6%;
+			}
+			&__etherum-value {
+				display: flex;
+				align-items: center;
+				font-family: 'Questrial';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 22px;
+				line-height: 140.1%;
+			}
+			&__etherum-value p {
+				margin-left: 9px;
+			}
+			&__usd-value {
+				display: flex;
+				align-items: center;
+				margin-top: -2px;
+				font-family: 'Questrial';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 140.1%;
+		    margin-left: auto;
+		    width: max-content;
+			}
+			&__usd-value p {
+				margin-left: 5px;
+			}
+		}
 	}
 	&__info {
 		width: 100%;
@@ -101,6 +141,25 @@
 					border: none;
 					padding: 0;
 					margin-bottom: 29px;
+				}
+				& .last-price {
+					margin-top: 11px;
+					&__label {
+						margin-top: 4px;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 130.6%;
+					}
+					&__etherum-value {
+						font-weight: 400;
+						font-size: 20px;
+						line-height: 140.1%;
+					}
+					&__usd-value {
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 140.1%;
+					}
 				}
 			}
 		}

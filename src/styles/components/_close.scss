@@ -2,26 +2,6 @@
 	position: relative;
 	width: 20px;
 	height: 20px;
-	&::before {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 2px;
-		background: $white;
-		left: 0;
-		top: 50%;
-		transform: translateY(-50%) rotate(45deg);
-	}
-	&::after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 2px;
-		background: $white;
-		left: 0;
-		top: 50%;
-		transform: translateY(-50%) rotate(-45deg);
-	}
 }
 
 @media screen and (max-width: 767px) {

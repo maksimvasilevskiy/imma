@@ -28,10 +28,14 @@ export const LifeFeedTable = ({
 			// Origin: 'imma_postman'
 			// }
 		};
+		console.log('config.url');
+		console.log(config.url);
 
 		axios(config)
 			.then((response) => {
 				setData(response.data);
+				console.log('lifefeed data');
+				console.log(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -54,7 +58,8 @@ export const LifeFeedTable = ({
 				</tr>
 			</thead>
 			<tbody className="table-body">
-				{tableData.map((row) => {
+				{/* TODO: Remove this example */}
+				{/* {tableData.map((row) => {
 					const dateOutput: string = dateConvert(row.date);
 					const shortToken: string = row.token.slice(0, 13) + '...';
 
@@ -183,9 +188,14 @@ export const LifeFeedTable = ({
 							</td>
 						</tr>
 					);
-				})}
+				})} */}
 				{data &&
-					data.results.map((row) => {
+					data.results.map((row, idx) => {
+						// To limit the number of video items
+						if (idx > 5) {
+							return null;
+						}
+
 						const shortToken: string = row.nfta.token_address.slice(0, 13) + '...';
 
 						const dateOutput: string = dateConvert(new Date(row.inft.date.last_update));
@@ -201,12 +211,15 @@ export const LifeFeedTable = ({
 							<tr className="table-row" key={row.index}>
 								<td className="table-col">
 									<div className="video" style={{ height: '100%' }}>
+									<Link to={`/allnft/${row.uid}`}>
 										<video
 											width="370"
-											src={row.inft.metadata.animation_url}
+											src={row.inft.metadata.animation_url + '#t=1'}
+											preload="metadata"
 											className="video-preview"
 										></video>
-										<div className="video-play__wrapper">
+									</Link>
+										{/*<div className="video-play__wrapper">
 											<Link to={`/allnft/${row.uid}`} className="video-play">
 												<svg
 													data-svg="play"
@@ -222,7 +235,7 @@ export const LifeFeedTable = ({
 													/>
 												</svg>
 											</Link>
-										</div>
+										</div>*/}
 									</div>
 								</td>
 								<td className="table-col">
@@ -318,7 +331,7 @@ export const LifeFeedTable = ({
 											<p className="title">
 												by{' '}
 												<a className="link" href="/">
-													{lastActivity.from}
+													{lastActivity.by}
 												</a>
 											</p>
 											<p className="title">{lastActivityDate}</p>

@@ -42,7 +42,7 @@
 				}
 				& video {
 					height: 100%;
-					max-height: 123px;
+    			min-height: 123px;
 					object-fit: cover;
 				}
 			}
@@ -121,6 +121,7 @@
 		align-items: center;
 		margin-bottom: 20px;
 		& svg {
+			flex-shrink: 0;
 			margin-right: 8px;
 		}
 	}

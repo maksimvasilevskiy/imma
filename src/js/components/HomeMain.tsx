@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
-import { NftVideoItem, NftVideo } from './NftVideoItem';
+import { NftMainVideoItem, NftVideo } from './NftMainVideoItem';
 import { mainNftVideoData } from './AllNft';
 import { BASE_URL, BLOCKCHAIN, NETWORK_NAME } from '../api/Api';
 import axios from 'axios';
@@ -85,7 +85,7 @@ export const HomeMain: React.FC = () => {
 									strokeLinecap="round"
 								/>
 							</svg>
-							{data && <NftVideoItem properties={data.results[0]} />}
+							<NftMainVideoItem />
 						</div>
 					</div>
 				</div>

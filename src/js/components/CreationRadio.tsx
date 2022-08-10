@@ -1,42 +1,65 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 interface IPriceRadio {
+	id?: string;
 	isFree: boolean;
 	price: {
 		isFree: boolean;
-		dollarValue: null | number;
-		ethereumValue: null | number;
+		dollarValue: null | string;
+		ethereumValue: null | string;
 	};
 	dispatch: React.Dispatch<any>;
 	input?: true;
 }
 
-export const PriceRadio = ({ isFree, price, dispatch, input }: IPriceRadio) => {
+export const PriceRadio = ({ id, isFree, price, dispatch, input }: IPriceRadio) => {
 	const [maxPrice, setMaxPrice] = useState<number>(50000);
 
 	// Handler controls value of the price input
 	const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		let value: string = e.target.value;
+    const value = e.target.value ? parseFloat(e.target.value) : "";
+    if (value === '') {
+			if (e.target.name === 'dollar-price') {
+				dispatch({ type: 'CHANGE_DOLLAR_PRICE', value: '' });
+			}
 
-		if (isNaN(+value)) {
-			return;
-		}
-
-		if (value.startsWith('0') && value.length >= 2) {
-			value = value.slice(1);
-		} else if (+value <= 0) {
-			value = '0';
-		} else if (+value > maxPrice) {
-			value = String(maxPrice);
+			if (e.target.name === 'eth-price') {
+				dispatch({ type: 'CHANGE_ETHEREUM_PRICE', value: '' });
+			}
 		}
 
 		if (e.target.name === 'dollar-price') {
-			dispatch({ type: 'CHANGE_DOLLAR_PRICE', value: +value });
+			dispatch({ type: 'CHANGE_DOLLAR_PRICE', value: value });
 		}
 
 		if (e.target.name === 'eth-price') {
-			dispatch({ type: 'CHANGE_ETHEREUM_PRICE', value: +value });
+			dispatch({ type: 'CHANGE_ETHEREUM_PRICE', value: value });
 		}
+		/*
+		let value: string = e.target.value;
+		let valid = false;
+
+		if (+value || +value === 0) {
+			console.log('valid ' + (+value));
+			valid = true;
+		} else {
+			value = value + '0';
+			console.log(value);
+			if (+value || +value === 0) {
+					valid = true;
+			}
+		}
+
+		if (valid) {
+
+			if (e.target.name === 'dollar-price') {
+				dispatch({ type: 'CHANGE_DOLLAR_PRICE', value: +value });
+			}
+
+			if (e.target.name === 'eth-price') {
+				dispatch({ type: 'CHANGE_ETHEREUM_PRICE', value: +value });
+			}
+		}*/
 	};
 
 	return (
@@ -65,18 +88,18 @@ export const PriceRadio = ({ isFree, price, dispatch, input }: IPriceRadio) => {
 						<div className="step-block__input-wrapper step-block__eth-input">
 							<input
 								className="input step-block__radio-input"
-								type="text"
+								type="number"
 								name="eth-price"
-								value={+price.ethereumValue}
+								value={price.ethereumValue}
 								onChange={(evt) => handlePriceChange(evt)}
 							/>
 						</div>
 						<div className="step-block__input-wrapper step-block__dollar-input">
 							<input
 								className="input step-block__radio-input"
-								type="text"
+								type="number"
 								name="dollar-price"
-								value={+price.dollarValue}
+								value={price.dollarValue}
 								onChange={(evt) => handlePriceChange(evt)}
 							/>
 						</div>
@@ -146,6 +169,10 @@ export const BlockchainRadio = ({ type, blockchain, dispatch }: IBlockchainRadio
 	);
 };
 
+interface CodeSessionT {
+	current: string;
+}
+
 interface ISocialRadio {
 	type: 'instagram' | 'twitter';
 	verification: {
@@ -153,11 +180,24 @@ interface ISocialRadio {
 		isVerified: boolean;
 	};
 	dispatch: React.Dispatch<any>;
+	session: {
+		current: string;
+	};
+	rid: string;
+	sendCode: (api_base_url: string, codeSession: string, userName: string, type_: string, rid: string) => void;
+	api_details_ref: {
+		current: {
+			api_base_url: string;
+			api_path: string;
+			api_server: string;
+			network: string;
+			selected: string;
+		}
+	}
 }
 
-export const SocialRadio = ({ type, verification, dispatch }: ISocialRadio) => {
+export const SocialRadio = ({ type, verification, dispatch, session, rid, sendCode, api_details_ref }: ISocialRadio) => {
 	const checkboxRef = useRef(null);
-
 	const [userName, setUserName] = useState<string>('');
 	const [isChecked, setIsChecked] = useState<boolean>(
 		verification.social === type ? true : false
@@ -170,6 +210,20 @@ export const SocialRadio = ({ type, verification, dispatch }: ISocialRadio) => {
 	}, [verification.social]);
 
 	const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {};
+
+	const send_code = async (event) => {
+		try {
+			console.log("in send_code");
+			event.preventDefault();
+			if (!userName) return /* alert("no username")*/;
+			const type_ = type;
+			const codeSession = session.current;
+			console.log("session: ", session);
+			sendCode(api_details_ref.current.api_base_url, codeSession, userName, type_, rid);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<label className="step-block step-block_social step-block__radio-label">
@@ -207,7 +261,7 @@ export const SocialRadio = ({ type, verification, dispatch }: ISocialRadio) => {
 					type="submit"
 					className="btn-arrow step-block__btn"
 					disabled={!isChecked}
-					onClick={(evt) => handleSubmit(evt)}
+					onClick={(evt) => send_code(evt)}
 				>
 					Send me the code
 				</button>

@@ -12,6 +12,9 @@
 				border-radius: 2px;
 			}
 		}
+		.form-submit-mobile {
+			font-size: 50px;
+		}
 		&-content {
 			max-width: 570px;
 			flex-grow: 1;
@@ -59,6 +62,42 @@
 	&-wrapper {
 		@include grid(30px, stretch);
 		grid-template-columns: repeat(3, 1fr);
+
+		&__sign-buttons {
+			position: absolute;
+			right: -48px;
+		}
+		&__sign-button {
+			display: flex;
+			width: 39.49px;
+			height: 39.49px;
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(20.9149px);
+			border-radius: 0.836594px;
+			display: flex;
+			justify-content: center;
+			vertical-align: middle;
+			display: block;
+			margin-bottom: 7px;
+			transition: all 0.25s ease;
+		}
+		&__sign-button:hover {
+			transition: all 0.25s ease;
+			background: #D6FF7E;
+		}
+		&__sign-button svg path {
+			transition: all 0.25s ease;
+		}
+		&__sign-button:hover svg path {
+			stroke: black;
+			transition: all 0.25s ease;
+		}
+		&__sign-button:last-child {
+			margin-bottom: 0;
+		}
+		&__sign-button svg {
+			height: 100%;
+		}
 		&_blockchain {
 			& .step-block__radio-btn {
 				margin-bottom: 20px;
@@ -68,13 +107,32 @@
 			@include flex();
 			grid-gap: 0;
 			& .btn-video {
-				margin-right: 46px;
+				margin-right: 11px;
 			}
 			& span {
 				display: inline-block;
 				max-width: 377px;
 				align-self: flex-end;
 				@include font(1.4rem, calc(20 / 14));
+			}
+			&-buttons {
+				position: relative;
+			}
+			&__btn_refuse {
+				width: 40px;
+				height: 40px;
+				background: rgba(255, 255, 255, 0.07);
+				backdrop-filter: blur(33.3333px);
+				border-radius: 1.33333px;
+		    display: flex;
+		    justify-content: center;
+		    vertical-align: middle;
+				position: absolute;
+				right: -40px;
+				top: 0;
+			}
+			&__btn_refuse svg {
+				height: 100%;
 			}
 		}
 	}
@@ -89,6 +147,29 @@
 		position: relative;
 		height: 100%;
 		@include flex(column, flex-start, flex-end);
+		.input-wrap {
+			width: 100%;
+			position: relative;
+		}
+		.filed-error {
+			font-family: 'Questrial';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 14px;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.5);
+			position: absolute;
+			bottom: -20px;
+		}
+		.input-icon {
+			position: absolute;
+			top: 15px;
+			right: 16px;
+		}
+		.input-error {
+			border: 1px solid #FF2525;
+		}
 		&__title {
 			padding-bottom: 30px;
 			margin-bottom: auto;
@@ -180,6 +261,39 @@
 				transform: translate(-50%, -50%);
 				color: $gray-650;
 				@include font(1.4rem, calc(20 / 14));
+			}
+			.signature {
+				&__upload {
+					position: absolute;
+					width: 100%;
+					left: 0;
+					bottom: -72px;
+				}
+				&__upload-bar-wrap {
+					height: 20px;
+					padding: 3px 4px;
+					margin-top: 27px;
+				}
+				&__upload-bar-wrap.active-signature-wrap {
+					border: 1px solid rgba(255, 255, 255, 0.5);
+					border-radius: 30px;
+				}
+				&__upload-bar-text {
+					height: 18px;
+					text-align: center;
+					font-family: 'SpaceMono';
+					font-style: normal;
+					font-weight: 700;
+					font-size: 14px;
+					line-height: 130.6%;
+					color: #FFFFFF;
+					margin-top: 8px;
+				}
+				&__upload-bar {
+					height: 100%;
+					background: #D6FF7E;
+					border-radius: 17px;
+				}
 			}
 		}
 		&_social {
@@ -439,14 +553,45 @@
 	.step {
 		&-wrapper {
 			grid-template-columns: 100%;
+			.signature__upload {
+				position: static;
+			}
+			&__sign-elements {
+				position: absolute;
+				display: flex;
+				width: 100%;
+				bottom: -61px;
+			}
+			&__sign-buttons {
+				position: static;
+				display: flex;
+			}
+			&__sign-button:first-child {
+				margin-right: 11px;
+				margin-left: 15px;
+			}
 			&_video {
 				grid-gap: 20px;
 				flex-direction: column;
 				& .btn-video {
 					margin: 0;
 				}
+				& .btn-video.btn-video-uploaded {
+			    padding-left: 47px;
+			    padding-right: 28px;
+			    padding-top: 22px;
+			    padding-bottom: 22px;
+    			font-size: 16px;
+				}
+				& .btn-video.btn-video-uploaded::before {
+    			left: 27px;
+    			width: 12px;
+				}
 				& span {
 					align-self: flex-start;
+				}
+				&__btn_refuse {
+					right: -51px;
 				}
 			}
 			&_social {
@@ -468,6 +613,9 @@
 			}
 		}
 		&-block {
+			&_sign .signature__upload-bar-wrap {
+				margin-top: 0;
+			}
 			&__radio {
 				&-label {
 					max-width: 380px;
@@ -606,6 +754,14 @@
 					&::before {
 						left: 20px;
 					}
+				}
+				&__btn_refuse {
+					width: 66px;
+					height: 66px;
+					right: -76px;
+				}
+				&__btn_refuse svg {
+					width: 20px;
 				}
 			}
 		}

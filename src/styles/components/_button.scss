@@ -20,6 +20,34 @@
 		height: 9px;
 		background: icon('arrow-white.svg') no-repeat 50% / cover;
 	}
+	&.btn_disable {
+		&::after {
+			background: icon('arrow-grey.svg') no-repeat 50% / cover;
+		}
+		&::before {
+			display: block;
+			position: absolute;
+			content: 'Already coupled';
+			bottom: -21px;
+			left: 0;
+			font-family: 'Questrial';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 14px;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.5);
+			text-transform: none;
+		}
+	}
+	&.btn_disable:hover {
+		background: transparent;
+		border: 2px solid #C4C4C4;
+		color: #C4C4C4;
+		&::after {
+			background: icon('arrow-grey.svg') no-repeat 50% / cover;
+		}
+	}
 	&:hover {
 		background: $lightgreen;
 		color: $black;
@@ -35,6 +63,10 @@
 		background: transparent;
 		padding: 1em 3.18em;
 		padding-right: calc(3.18em + 33px);
+	}
+	&_border_green.btn_disable {
+		border: 2px solid #C4C4C4;
+		color: #C4C4C4;
 	}
 	&-arrow {
 		font-family: $title-font;
@@ -91,6 +123,20 @@
 			width: 30px;
 			height: 23px;
 			background: icon('camera.svg') no-repeat 50% / contain;
+		}
+		&-uploaded {
+			padding-left: 85px;
+    	padding-right: 47px;
+		}
+		&-uploaded::before {
+			content: '';
+			position: absolute;
+			left: 46px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 21px;
+			height: 13px;
+			background: icon('video-ok.svg') no-repeat 100% / contain;
 		}
 		&:hover {
 			outline: 1px solid $lightgreen;

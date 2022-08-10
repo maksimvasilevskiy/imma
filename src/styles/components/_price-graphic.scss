@@ -1,0 +1,110 @@
+.price-graphic {
+  width: 100%;
+  max-width: 670px;
+  height: 303.93px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(50px);
+  border-radius: 2px;
+  padding: 50px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  .recharts-responsive-container {
+    height: 126px !important;
+    text {
+      font-family: 'Questrial';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130.6%;
+      color: #EBEBEB;
+    }
+    .recharts-surface {
+      overflow: visible;
+    }
+    .recharts-cartesian-grid-horizontal line {
+      transform: scale(1.05,1) translate(-17px, 0);
+    }
+  }
+  &__title {
+    font-family: 'SpaceMono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130.6%;
+    color: #FFFFFF;
+  }
+  &__number {
+    font-family: 'SpaceMono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130.6%;
+    color: #D6FF7E;
+    margin-top: 7px;
+    margin-bottom: 30px;
+    display: flex;
+    svg {
+      margin-right: 3px;
+      margin-top: 4px;
+    }
+  }
+  &__description {
+    display: none;
+    margin-top: 20px;
+    &-item {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+    }
+    &-item:first-child {
+      margin-top: 0;
+    }
+    &-text {
+      font-family: 'Questrial';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 130.6%;
+    }
+    &-line {
+      width: 17.84px;
+      height: 2px;
+      margin-right: 12px;
+    }
+    &-line.yellow-line {
+      background: rgba(214, 255, 126, 1);
+    }
+    &-line.red-line {
+      background: rgba(255, 126, 165, 1);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .price-graphic {
+    padding: 30px 24px;
+    height: auto;
+    .recharts-responsive-container {
+      .xAxis {
+        text {
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 130.6%;
+        }
+      }
+      .yAxis {
+        text {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 130.6%;
+        }
+      }
+      .recharts-cartesian-grid-horizontal line {
+        transform: none;
+      }
+    }
+    &__description {
+      display: block;
+    }
+  }
+}

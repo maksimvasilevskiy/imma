@@ -12,11 +12,11 @@ export const ProductOriginalNft = ({ video }: { video: Result }) => {
 					width="180"
 					height="180"
 					className="product-page__original-img"
-					src={video.nfta.metadata.animation_url}
+					src={video.nfta.metadata.image}
 					alt=""
 				></img>
 				<div className="video-play__link">
-					<Link to={`/original-nft/nft`}>
+					<Link to={`/original-nft/${video.uid}`}>
 						<svg
 							width="27"
 							height="10"

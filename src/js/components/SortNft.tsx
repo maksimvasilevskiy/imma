@@ -4,6 +4,7 @@ import { TableActionType, AllNftStateT } from '../pages/AllImmaNft';
 interface SortNftProps {
 	state: AllNftStateT;
 	dispatch: React.Dispatch<TableActionType>;
+	handleSearch: () => void;
 }
 
 type SortOptionsT = {
@@ -25,7 +26,7 @@ const sortOptions: Array<SortOptionsT> = [
 	}
 ];
 
-export const SortNft = ({ state, dispatch }: SortNftProps) => {
+export const SortNft = ({ state, dispatch, handleSearch }: SortNftProps) => {
 	const searchRef = useRef(null);
 
 	useEffect(() => {
@@ -53,7 +54,7 @@ export const SortNft = ({ state, dispatch }: SortNftProps) => {
 						type="text"
 						name="search"
 						placeholder="Search..."
-						value={state.searchValue}
+						//value={state.searchValue}
 						onChange={(evt) =>
 							dispatch({ type: 'SORT_SEARCH_CHANGE', value: evt.target.value })
 						}
@@ -61,7 +62,7 @@ export const SortNft = ({ state, dispatch }: SortNftProps) => {
 					<button
 						type="button"
 						className="nfts-sort__search-btn"
-						onClick={() => dispatch({ type: 'SORT_SEARCH' })}
+						onClick={() => handleSearch()/*dispatch({ type: 'SORT_SEARCH' })*/}
 						ref={searchRef}
 					>
 						<svg

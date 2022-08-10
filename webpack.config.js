@@ -23,7 +23,6 @@ const optimize = () => {
 	if (isProd) {
 		(configObj.minimize = true),
 			(configObj.minimizer = [
-				//new OptimizeCssAssetsWebpackPlugin(),
 				new CssMinimizerPlugin(),
 				new TerserWebpackPlugin({
 					parallel: true
@@ -42,6 +41,11 @@ const plugins = () => {
 			minify: {
 				collapseWhitespace: isProd
 			}
+		}),
+		new CopyWebpackPlugin({
+		  patterns: [
+		     {from: path.resolve(__dirname, 'src', '_redirects'), to: path.resolve(__dirname, 'dist')}
+		  ]
 		}),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
@@ -94,7 +98,7 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
 	entry: {
-		app: './js/index.js'
+	    app: ['babel-polyfill', './js/index.js']
 	},
 	output: {
 		filename: `./js/${filename('js')}`,
@@ -115,7 +119,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(jpe?g|png|gif)$/i,
+				test: /\.(jpe?g|png|gif|MP4)$/i,
 				type: 'asset/resource'
 			},
 			{

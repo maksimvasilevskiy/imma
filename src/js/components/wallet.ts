@@ -181,19 +181,21 @@ const getAddress = async (signer)=>{
   }
 }
 
-const isConnected = async (ethereum,ethers,isConnectedCallBack)=>{
+const isConnected = async (ethereum: any,ethers,isConnectedCallBack)=>{
+  console.log('ethereum');
+  console.log(ethereum);
   try {
-   
+
       const response = {
         'app':false,
         'mobile':false,
         'connected':false,
         'chainId':null,
-        // 'address':null,
+        'address':null,
       }
+      response.mobile = isMobileDevice()
       if (ethereum){
         response.app = true
-        response.mobile = isMobileDevice()
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const chainId = await signer.getChainId()
@@ -202,10 +204,10 @@ const isConnected = async (ethereum,ethers,isConnectedCallBack)=>{
         const address = await getAddress(signer)
         response.address = address
         isConnectedCallBack(response)
-        return        
+        return
       }
       isConnectedCallBack(response)
-    
+
   } catch (error) {
     console.log(error)
     isConnectedCallBack(null)
@@ -218,6 +220,9 @@ const connect = async (params, ethers, ethereum, _axios, onChainIdChange, setlis
     message: null,
     log: [],
     chainId: null,
+    signer: null,
+    session_fp: null,
+    wallet: null
   }
   const log = response.log
 
@@ -306,10 +311,15 @@ const connect = async (params, ethers, ethereum, _axios, onChainIdChange, setlis
 
 const signRedeemVoucher = async (signer, payload) => {
   try {
-    console.log('payload.voucher: ',payload.voucher)
+    const response = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    // alert('response: ' + JSON.stringify(response));
+    // alert('signer: ');
+    // alert(signer);
+    // alert('payload: ' + JSON.stringify(payload));
     const signature = await signer._signTypedData(payload.domain, payload.types, payload.voucher)
     return signature
   } catch (error) {
+    // alert('error: ' + JSON.stringify(error));
     console.log(error)
   }
 }
@@ -325,7 +335,7 @@ const claim = async (signer, ethers,results) => {
     const contract = new ethers.Contract(root_address, root_abi, signer);
     const res = await contract.redeem(redeemVoucher,claimVoucher, { value }).catch((error) => {
       if (error.error) {
-        alert(error.error.message);
+        /* alert(error.error.message)*/;
         return null;
       }
     });

@@ -25,6 +25,9 @@
 		display: none;
 		& .video {
 			@include flex(row, flex-end);
+			video {
+				height: 245px;
+			}
 			&-play {
 				&__link {
 					position: absolute;

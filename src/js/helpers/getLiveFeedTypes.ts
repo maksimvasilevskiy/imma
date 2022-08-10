@@ -29,6 +29,7 @@ export type ActivityItemT = {
 	epoch: number;
 	event: string;
 	from: string;
+	by: string;
 	to: string;
 	priceETH: null | number;
 	icon: null | string;

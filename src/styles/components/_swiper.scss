@@ -1,4 +1,11 @@
 .swiper {
+	&.more-swiper__swiper {
+		.all-nft__swiper-slide.swiper-slide-active {
+			.video {
+				max-height: 478px;
+			}
+		}
+	}
 	&-slide {
 		width: 270px;
 		&-active {

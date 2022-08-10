@@ -19,6 +19,7 @@ export type ActivityT = {
 	event: string;
 	time?: string;
 	epoch?: 1652528075;
+	by?: string;
 	from?: string;
 	to?: string;
 	priceETH?: null | number;
@@ -146,7 +147,7 @@ export const tableData: Array<ITableData> = [
 		slug: 'adam-smith-2',
 		sign: sign,
 		tag: '@AdamSmith',
-		author: 'Adamsmith',
+		author: 'Bdamsmith',
 		author_url: 'http://twitter.com/adamsmith',
 		avatar: null,
 		date: new Date('05-09-2021'),
@@ -236,7 +237,7 @@ export const tableData: Array<ITableData> = [
 		slug: 'adam-smith-2',
 		sign: sign,
 		tag: '@AdamSmith',
-		author: 'Adamsmith',
+		author: 'Cdamsmith',
 		author_url: 'http://twitter.com/adamsmith',
 		avatar: null,
 		date: new Date('05-09-2021'),
@@ -326,7 +327,7 @@ export const tableData: Array<ITableData> = [
 		slug: 'adam-smith-2',
 		sign: sign,
 		tag: '@AdamSmith',
-		author: 'Adamsmith',
+		author: 'Ddamsmith',
 		author_url: 'http://twitter.com/adamsmith',
 		avatar: null,
 		date: new Date('05-09-2021'),
@@ -417,7 +418,7 @@ export const tableData: Array<ITableData> = [
 		slug: 'adam-smith-2',
 		sign: sign,
 		tag: '@AdamSmith',
-		author: 'Adamsmith',
+		author: 'Edamsmith',
 		author_url: 'http://twitter.com/adamsmith',
 		avatar: null,
 		date: new Date('05-09-2021'),

@@ -16,6 +16,7 @@ export const SocialLink = ({ properties }: { properties: socialLinkT }) => {
 	return (
 		<a
 			href={properties.link}
+			target="_blank"
 			className="footer-socials__icon"
 			onMouseOver={() => setIsHovered(true)}
 			onMouseOut={() => setIsHovered(false)}

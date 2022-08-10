@@ -67,7 +67,8 @@ export const NftVideoItem = ({
 				<video
 					width="370"
 					height="658"
-					src={properties.inft.metadata.animation_url}
+					src={properties.inft.metadata.animation_url + '#t=1'}
+					preload="metadata"
 					className="video-preview"
 				></video>
 				<div className="video-play__wrapper">
@@ -87,8 +88,10 @@ export const NftVideoItem = ({
 						</svg>
 					</Link>
 				</div>
+				{properties.nfta.metadata ?
+				<>
 				<div className="video-icon">
-					<img width="44" height="44" src={properties.nfta.image} alt="" />
+					<img width="44" height="44" src={properties.nfta.metadata.image} alt="" />
 				</div>
 				<div className="video-bottom">
 					<div className="video-bottom__sign">
@@ -99,9 +102,12 @@ export const NftVideoItem = ({
 						<time className="video-bottom__tag-date">{convertedDate}</time>
 					</div>
 				</div>
+				</> : ''
+				}
 			</div>
 		);
 	} else {
+		console.log('nft error')
 		return null;
 	}
 };
